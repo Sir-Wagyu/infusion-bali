@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './App.css'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import Header from './components/Headers'
@@ -13,6 +13,7 @@ import CallToAction from './components/callToAction'
 import Faq from './components/Faq'
 import Footer from './components/footer'
 import AllProducts from './components/allProducts'
+import NotFound from './pages/NotFound'
 
 function App() {
     // Initialize AOS
@@ -31,6 +32,18 @@ function App() {
             AOS.refresh();
         };
     }, []);
+
+    return (
+        <Router>
+            <AppContent />
+        </Router>
+    )
+}
+
+// Component untuk mengatur layout berdasarkan route
+function AppContent() {
+    const location = useLocation();
+    const isNotFoundPage = !['/', '/products'].includes(location.pathname);
 
     // Component untuk homepage
     const HomePage = () => {
@@ -66,17 +79,21 @@ function App() {
         )
     }
 
+    // Component untuk 404 page
+    const NotFoundPage = () => {
+        return <NotFound />
+    }
+
     return (
-        <Router>
-            <div className='min-h-screen font-jakarta bg-background'>
-                <Header />
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/products" element={<ProductsPage />} />
-                </Routes>
-                <Footer />
-            </div>
-        </Router>
+        <div className='min-h-screen font-jakarta bg-background'>
+            {!isNotFoundPage && <Header />}
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/products" element={<ProductsPage />} />
+                <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+            {!isNotFoundPage && <Footer />}
+        </div>
     )
 }
 
