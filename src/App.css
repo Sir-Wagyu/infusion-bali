@@ -1,0 +1,30 @@
+/* font jakarta plus */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+/* font montserrrat */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+@theme {
+   --font-family-jakarta: "Plus Jakarta Sans", sans-serif;
+   --font-family-montserrat: "Montserrat", sans-serif;
+
+   /* custom color */
+   --color-primary: #6cb5c8;
+   --color-secondary: #407280;
+   --color-highlight: #fcd683;
+   --color-highlight-secondary: #f6c052;
+   --color-surface: #ffffff;
+   --color-background: #f8f9fa;
+   --color-card: #d9e2e5;
+}
+
+@layer utilities {
+   .font-jakarta {
+      font-family: var(--font-family-jakarta);
+   }
+}
+/* 
+* {
+   border: red solid 1px;
+} */
