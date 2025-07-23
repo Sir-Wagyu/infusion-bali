@@ -8,7 +8,29 @@ function Footer() {
       const [activeLocation, setActiveLocation] = useState('ubud');
 
 
-
+      const buttonLocation = (locationName) => {
+            const locationNameCapitalized = locationName.charAt(0).toLowerCase() + locationName.slice(1);
+            return (
+                  <button
+                        className={`py-3 px-3 lg:px-7 lg:w-full h-full lg:rounded-full font-semibold lg:shadow-lg group flex flex-col lg:flex-row items-center justify-center transition-all duration-300 lg:gap-3 ${activeLocation === locationNameCapitalized
+                              ? 'text-primary lg:bg-primary lg:text-surface border-b-2 border-primary'
+                              : 'text-secondary lg:bg-surface lg:text-primary hover:bg-primary hover:text-surface'
+                              }`}
+                        onClick={() => handleLocationChange(locationNameCapitalized)}
+                  >
+                        <span className="hidden lg:block">
+                              <FontAwesomeIcon
+                                    icon={faLocationDot}
+                                    className={`text-3xl lg:text-lg py-2 px-3 rounded-full transition-colors duration-300 ${activeLocation === locationNameCapitalized
+                                          ? 'bg-surface text-primary'
+                                          : 'bg-primary text-surface group-hover:bg-surface group-hover:text-primary'
+                                          }`}
+                              />
+                        </span>
+                        <span className="font-bold">{locationNameCapitalized}</span>
+                  </button>
+            )
+      };
       const handleLocationChange = (locationKey) => {
             setActiveLocation(locationKey);
       };
@@ -19,60 +41,9 @@ function Footer() {
                         <div className="w-[90%] mx-auto flex flex-col lg:flex-row gap-6 justify-between items-start">
                               <div className="w-full lg:w-[20%] space-y-5 flex flex-row lg:flex-col justify-center gap-3">
 
-                                    <button
-                                          className={`py-3 px-7 lg:w-full h-full rounded-full font-semibold shadow-lg group flex flex-col lg:flex-row items-center justify-center transition-all duration-300 lg:gap-3 ${activeLocation === 'ubud'
-                                                ? 'bg-primary text-surface'
-                                                : 'bg-surface text-primary hover:bg-primary hover:text-surface'
-                                                }`}
-                                          onClick={() => handleLocationChange('ubud')}
-                                    >
-                                          <span className="hidden lg:block">
-                                                <FontAwesomeIcon
-                                                      icon={faLocationDot}
-                                                      className={`text-3xl lg:text-lg py-2 px-3 rounded-full transition-colors duration-300 ${activeLocation === 'ubud'
-                                                            ? 'bg-surface text-primary'
-                                                            : 'bg-primary text-surface group-hover:bg-surface group-hover:text-primary'
-                                                            }`}
-                                                />
-                                          </span>
-                                          <span className="font-bold">Ubud</span>
-                                    </button>
-                                    <button
-                                          className={`py-3 px-7 lg:w-full h-full rounded-full font-semibold shadow-lg group flex flex-col lg:flex-row items-center justify-center transition-all duration-300 lg:gap-3 ${activeLocation === 'berawa'
-                                                ? 'bg-primary text-surface'
-                                                : 'bg-surface text-primary hover:bg-primary hover:text-surface'
-                                                }`}
-                                          onClick={() => handleLocationChange('berawa')}
-                                    >
-                                          <span className="hidden lg:block">
-                                                <FontAwesomeIcon
-                                                      icon={faLocationDot}
-                                                      className={`text-3xl lg:text-lg py-2 px-3 rounded-full transition-colors duration-300 ${activeLocation === 'berawa'
-                                                            ? 'bg-surface text-primary'
-                                                            : 'bg-primary text-surface group-hover:bg-surface group-hover:text-primary'
-                                                            }`}
-                                                />
-                                          </span>
-                                          <span className="font-bold">Berawa</span>
-                                    </button>
-                                    <button
-                                          className={`py-3 px-7 lg:w-full h-full rounded-full font-semibold shadow-lg group flex flex-col lg:flex-row items-center justify-center transition-all duration-300 lg:gap-3 ${activeLocation === 'canggu'
-                                                ? 'bg-primary text-surface'
-                                                : 'bg-surface text-primary hover:bg-primary hover:text-surface'
-                                                }`}
-                                          onClick={() => handleLocationChange('canggu')}
-                                    >
-                                          <span className="hidden lg:block">
-                                                <FontAwesomeIcon
-                                                      icon={faLocationDot}
-                                                      className={`text-3xl lg:text-lg py-2 px-3 rounded-full transition-colors duration-300 ${activeLocation === 'canggu'
-                                                            ? 'bg-surface text-primary'
-                                                            : 'bg-primary text-surface group-hover:bg-surface group-hover:text-primary'
-                                                            }`}
-                                                />
-                                          </span>
-                                          <span className="font-bold">Canggu</span>
-                                    </button>
+                                    {buttonLocation('Ubud')}
+                                    {buttonLocation('Berawa')}
+                                    {buttonLocation('Canggu')}
                               </div>
                               <div className="w-full lg:w-[75%] bg-surface rounded-lg p-3 lg:p-6 shadow-lg">
                                     <div className="mb-4">
