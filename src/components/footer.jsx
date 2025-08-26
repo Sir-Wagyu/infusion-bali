@@ -67,12 +67,12 @@ function Footer() {
                         <h3 className="font-family-montserrat font-bold text-xl lg:text-2xl mt-6"><span className="text-[#FFDE5B]">INFUSION</span> BALI</h3>
                         <p className="text-sm mt-2">SPECIALLY FORMULATED INTRAVENOUS INFUSION</p>
                         <div className="flex gap-4 mt-4 ">
-                              <div className="size-12 bg-primary rounded-full flex items-center justify-center hover:bg-highlight hover:text-secondary transition-colors duration-200">
+                              <a href="https://api.whatsapp.com/send?phone=6282211511911" className="size-12 bg-primary rounded-full flex items-center justify-center hover:bg-highlight hover:text-secondary transition-colors duration-200">
                                     <FontAwesomeIcon icon={faWhatsapp} className="ml-1 text-3xl" />
-                              </div>
-                              <div className="size-12 bg-primary rounded-full flex items-center justify-center hover:bg-highlight hover:text-secondary transition-colors duration-200">
+                              </a>
+                              <a href="https://www.instagram.com/infusion.bali/" className="size-12 bg-primary rounded-full flex items-center justify-center hover:bg-highlight hover:text-secondary transition-colors duration-200">
                                     <FontAwesomeIcon icon={faInstagram} className="text-3xl" />
-                              </div>
+                              </a>
                         </div>
                         <div className="mt-10 ">
                               <h3 className="text-lg font-semibold">Our Pages</h3>
