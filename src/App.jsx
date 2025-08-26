@@ -50,7 +50,9 @@ function AppContent() {
         return (
             <>
                 <Hero />
-                <BestProducts />
+                <section id="bestProd">
+                    <BestProducts />
+                </section>
 
                 <div data-aos="fade-up" data-aos-delay="100">
                     <Features />
