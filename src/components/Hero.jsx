@@ -26,7 +26,7 @@ function Hero() {
                                     Our premium IV drips cure Bali Belly, hangovers, and boost your immunity fast. Don't let anything ruin your Bali adventure!
                               </p>
                               <a
-                                    href=""
+                                    href="#bestProd"
                                     className="mt-6 px-8 py-3 bg-highlight text-secondary rounded-full w-max font-bold hover:bg-highlight-secondary transition-all"
                                     data-aos="fade-up"
                                     data-aos-delay="700"
